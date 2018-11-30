@@ -1,0 +1,19 @@
+public class Wrapper
+	{  
+		//In this program we are using the Integer Wrapper Class and int primitive data type.
+    	public static void main(String args[])
+    		{  
+    			//Converting int into Integer  
+    			int a=10;  
+    			Integer i=Integer.valueOf(a);//converting int into Integer explicitly.
+    			Integer j=a;//autoboxing, since the compiler will write Integer.valueOf(a) internally.
+    			System.out.println("a="+a+" i="+i+" j="+j);
+
+
+    			//Converting Integer to int    
+    			Integer b=new Integer(20);    
+    			int x=b.intValue();//converting Integer to int explicitly.
+    			int y=b;//unboxing, since the compiler will write a.intValue() internally.     
+    			System.out.println("b="+b+" x="+x+" y="+y);     
+    		}  
+	}

@@ -1,0 +1,27 @@
+public class Mut_Immut 
+{
+	//This function tries to add a string "Added" to the original String object. 
+	static void change(String s)
+		{ 
+		  s = s + " Added";
+		}
+
+	//This function appends a string "Added" to the original StringBuffer object. 
+	static void change(StringBuffer s)
+		{
+		  s.append(" Added");
+		}
+
+	public static void main(String[] args) 
+		{
+		   StringBuffer sb = new StringBuffer("Value");
+		   String str = "Value";
+		   System.out.println("Original StringBuffer: "+sb);	
+		   System.out.println("Original String: "+str+"\n\nAfter Executing change function:--");	
+		   change(sb);
+		   change(str);
+		   System.out.println("StringBuffer: "+sb);	//Displays that StringBuffer object is mutable.
+		   System.out.println("String: "+str);		//Displays that String object is immutable.
+		}
+
+}

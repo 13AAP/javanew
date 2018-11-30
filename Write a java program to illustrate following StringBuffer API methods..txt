@@ -1,0 +1,30 @@
+import java.io.*;
+class B
+{
+public static void main(String args[])throws IOException
+{
+System.out.println(&quot;Enter a string:&quot;);
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+String s=br.readLine();
+StringBuffer t=new StringBuffer(s);
+System.out.println(&quot;append : &quot;+t.append(&quot;hi&quot;));
+System.out.println(&quot;capacity : &quot;+t.capacity());
+System.out.println(&quot;delete : &quot;+t.delete(2,6));
+System.out.println(&quot;deletecharAt : &quot;+t.deleteCharAt(5));
+t.ensureCapacity(28);
+System.out.println(&quot;EnsureCapacity: &quot;+t.capacity());
+char a[]= new char[20];
+t.getChars(6,15,a,0);
+System.out.println(a);
+System.out.println(&quot;indexOF: &quot;+t.indexOf(&quot;h&quot;));
+System.out.println(&quot;insert: &quot;+t.insert(5, &quot;hello&quot;));
+System.out.println(&quot;length: &quot;+t.length());
+t.setCharAt(3, &#39;L&#39;);
+System.out.println(&quot;setCharAt: &quot;+t);
+t.setLength(5);
+System.out.println(&quot;setLength: &quot;+t);
+System.out.println(&quot;substring: &quot;+t.substring(3));
+System.out.println(&quot;toString: &quot;+t.toString());
+}
+
+}

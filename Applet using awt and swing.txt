@@ -1,0 +1,98 @@
+package keyEventPackage;
+
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+
+
+/**
+ *
+ * @author User
+ */
+public class AppletKeyEvent extends Applet implements KeyListener
+{
+
+    /**
+     * Initialization method that will be called after the applet is loaded into
+     * the browser.
+     */
+   char ch;
+  String str;
+  public void init()            // link the KeyListener with Applet
+  {
+    addKeyListener(this);
+  }
+  			        // override all the 3 abstract methods of KeyListener interface 
+  public void keyPressed(KeyEvent e)   {   }
+  public void keyReleased(KeyEvent e)  {   }
+  public void keyTyped(KeyEvent e)  
+  {   
+    ch = e.getKeyChar();
+    if(ch == 'a')
+      str = "a for apple";    
+    else if(ch == 'e')
+      str = "e for ear";    
+    else if(ch == 'i')
+      str = "i for ice";    
+    else if(ch == 'o')
+      str = "o for ox";    
+    else if(ch == 'u')
+      str = "u for umbrella";    
+    else
+      str = "Type only vowels a, e, i, o, u only";    
+  
+    repaint();
+  }    
+
+  public void paint(Graphics g)
+  {
+    g.drawString(str, 100, 150);
+    showStatus("You typed " + ch + " character");
+  }
+
+    // TODO overwrite start(), stop() and destroy() methods
+}
+import java.applet.Applet;
+import java.awt.*;
+  
+public class MyApplet extends Applet {
+
+    /**
+     * Initialization method that will be called after the applet is loaded into
+     * the browser.
+     */
+   private String defaultMessage = "Hello!";
+	
+	public void paint(Graphics g) {
+		String s1 =this.getParameter("name");
+                String s2 =this.getParameter("roll");
+                String s3 =this.getParameter("year");
+                String s4 =this.getParameter("dept");
+                String s5 ="Section - B";
+                String codebase="Codebase: " + getCodeBase().toString();
+		String documentbase="Documentbase: " + getDocumentBase().toString();
+
+
+                
+		if(s1 == null)
+                { 
+                    s1=defaultMessage;g.drawString(s1, 50, 25);
+                }
+                         
+                else
+                {
+		g.drawString(s1, 50, 25);
+                g.drawString(s2, 50, 45);
+                g.drawString(s3, 50, 65);
+                g.drawString(s4, 50, 85);
+                g.drawString(s5, 50, 105);
+                g.drawString(codebase, 50, 125);
+                g.drawString(documentbase, 50, 145);
+                
+                }
+			
+	}
+
+    // TODO overwrite start(), stop() and destroy() methods
+}

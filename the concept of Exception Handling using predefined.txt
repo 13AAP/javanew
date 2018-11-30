@@ -1,0 +1,24 @@
+public class PredefinedExceptionHandler 
+	{
+		public static void printSubString(String s, int a, int b) throws NullPointerException
+			{
+				String str = s.substring(a, b); //Throws NullPointerException in this line
+				System.out.println(str); //The control doesn't reach this line.
+			}
+		public static void main(String args[])
+			{
+				try
+					{
+						printSubString(null, 1, 5);
+					}
+				catch (NullPointerException npe)
+					{
+						System.out.println("Exception caught!");
+					}
+				finally 
+					{
+						System.out.println("Final Block!"); //Always executed, even if the exception isn't caught
+					}
+		
+			}
+	}

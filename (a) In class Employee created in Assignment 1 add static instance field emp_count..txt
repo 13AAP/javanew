@@ -1,0 +1,117 @@
+import java.io.*;
+public class Employee
+	{	
+		final String name;		//To store Employee name
+		String designation;		//To store Employee designation
+		 int emp_id;			//To store Employee ID
+		static int emp_count=1;	//To store Employee Count
+		double salary;			//To store Employee salary
+
+		Employee()				//To store the details of Temporary Employee  
+			{
+				name="Temporary";
+				designation="Temporary";
+				emp_id=emp_count++;
+				salary=10000;
+			}
+
+		Employee(String n)	//To store the details of Freshers Employee  
+			{
+				name=n;
+				salary=25000;
+				designation="Freshers";
+				emp_id=emp_count++;
+			}
+
+		Employee(String n, double sal)	//To store the details of Executive Employee  
+			{
+				name=n;
+				designation="Executive";
+				emp_id=emp_count++;
+				salary=sal;
+			}
+		void inc()	//To increment the salary of Temporary Employee  
+			{
+				salary+=2000;
+			}
+		void inc(double p,double b)	//To increment the salary of Executive Employee  
+			{
+				salary+=(salary*p/100.0)+b;
+			}
+		void inc(double b)	//To increment the salary of Freshers Employee  
+			{
+				salary+=b;
+			} 
+		void display()	//To display the details of an Employee  
+			{
+				System.out.println("\nName		:	"+this.name);
+				System.out.println("Designation	:	"+this.designation);
+				System.out.println("Id. No		:	"+this.emp_id);
+				System.out.println("Salary	:		Rs. "+this.salary);
+			}
+
+		Employee compare(Employee ob)	//To compare the salries of the Employee  
+			{
+				if(this.salary>ob.salary)
+					{
+						System.out.println(" Higher salary is recieved by "+this.name+".");
+						return this;
+					}
+				else if( ob.salary>this.salary)
+					{
+						System.out.println(" Higher salary is recieved by "+ob.name+".");
+						return ob;
+					}
+				else 
+					{
+      						System.out.println(" Both have the same salary!!!");
+						return null;
+					}
+			}
+
+		public static void main(String args[])throws IOException
+			{
+				String n;
+				 double p,s;
+				BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+				
+				Employee e[] = new Employee[3];
+				e[0] = new Employee(); 
+				System.out.println("Enter the name of the Freshers:");
+				n=in.readLine();
+				e[1] = new Employee(n);
+				System.out.println("Enter the name of the Executive and initial salary:");
+				n=in.readLine();
+				s=Double.parseDouble(in.readLine());
+				e[2] = new Employee(n,s);
+	
+				System.out.println("\n *******Initial Values******* \n \n");
+				e[0].display();	
+				e[1].display();
+				e[2].display();
+				
+				e[0].inc();
+				System.out.println("Enter the BONUS of the Freshers:");
+				s=Double.parseDouble(in.readLine());
+				e[1].inc(s);
+				System.out.println("Enter the PERCENTAGE & BONUS of the Freshers:");
+				p=Double.parseDouble(in.readLine());
+				s=Double.parseDouble(in.readLine());
+				e[2].inc(p,s);
+		
+				System.out.println("\n *******After Increment******* \n \n");
+				e[0].display();	
+				e[1].display();
+				e[2].display();
+				
+				Employee c;
+				System.out.println("\n Comparison between "+e[0].name+" and "+e[1].name+" :");
+				c=e[0].compare(e[1]);
+				System.out.println("\n Comparison between "+e[1].name+" and "+e[2].name+" :");
+				c=e[1].compare(e[2]);
+				System.out.println("\n Comparison between "+e[2].name+" and "+e[0].name+" :");
+				c=e[2].compare(e[0]);
+	
+				
+			}
+	}

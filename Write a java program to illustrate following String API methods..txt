@@ -1,0 +1,29 @@
+import java.io.*;
+class A
+{
+public static void main(String args[])throws IOException
+{
+System.out.println(&quot;Enter a string:&quot;);
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+String s=br.readLine();
+System.out.println(&quot;Enter 2nd string to compare&quot;);
+String t=br.readLine();
+System.out.println(&quot;Enter a number to Substring and print charAt&quot;);
+int b=Integer.parseInt(br.readLine());
+System.out.println(&quot;character at string is &quot;+s.charAt(b));
+System.out.println(&quot;compare two string &quot;+s.compareTo(t));
+System.out.println(&quot;to lower case &quot;+s.toLowerCase());
+System.out.println(&quot;to upper case &quot;+s.toUpperCase());
+System.out.println(&quot;compare two string &quot;+s.equals(t));
+System.out.println(&quot;compare two string &quot;+s.equalsIgnoreCase(t));
+
+System.out.println(&quot;Index of wo is &quot;+s.indexOf(&quot;wo&quot;));
+System.out.println(&quot;length &quot;+s.length());
+System.out.println(&quot;sub string &quot;+s.substring(0,b));
+System.out.println(Integer.toString(12));
+char[] array= s.toCharArray();
+System.out.print(array);
+System.out.println(&quot;trim : &quot;+s.trim());
+System.out.println(&quot;VAlue of : &quot;+Integer.valueOf(16));
+}
+}

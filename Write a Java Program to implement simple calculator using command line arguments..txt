@@ -1,0 +1,42 @@
+public class Calculator 
+	{
+		//To add 2 numbers.
+		public static void add(int x, int y)
+			{
+				int result =x+y;
+				System.out.println(x+" + "+y+" = "+result);
+			}
+		
+		//To subtract one number from the other.
+		public static void subtract(int x, int y)
+			{
+				int result =x-y;
+				System.out.println(x+" - "+y+" = "+result);
+			}
+		
+		//To multiply 2 numbers
+		public static void multiply(int x, int y)
+			{
+				int result =x*y;
+				System.out.println(x+" * "+y+" = "+result);
+			}
+		
+		//To divide one number by the other.
+		public static void divide(int x, int y)
+			{
+				int result =x/y;
+				System.out.println(x+" / "+y+" = "+result);
+			}
+		
+		public static void main(String args[])
+			{
+				int x = Integer.parseInt(args[0]);
+				int y = Integer.parseInt(args[1]);
+				//Calling all the static functions to calculate the results.
+				add(x,y);
+				subtract(x,y);
+				multiply(x,y);
+				divide(x,y);
+			}
+			
+	}

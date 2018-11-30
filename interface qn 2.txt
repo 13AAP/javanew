@@ -1,0 +1,37 @@
+interface A
+{
+public double area(int x,int y);
+}
+interface B
+{
+
+public double volume(int x,int y,int z);
+}
+abstract class C
+{
+abstract void print(double a,double b);
+}
+class Point extends C implements A,B
+{
+int x=0, y=0,z=0;
+public double area(int x,int y)
+{
+double c=x*y;
+return c;
+}
+public double volume(int x,int y,int z)
+{
+double c =x*y*z;
+return c;
+}
+void print(double l,double m)
+{
+System.out.println(&quot;Area: &quot; + l + &quot;Volume :&quot; + m);
+}
+public static void main(String args[]) {
+Point p = new Point();
+double a=p.area(50,100);
+double b=p.volume(60,70,80);
+p.print(a,b);
+}
+}

@@ -1,0 +1,105 @@
+import java.lang.*;
+class MyRunnable1 implements Runnable 
+	{
+		public void run()
+			{
+				System.out.println("\nPriority of thread1 : " + Thread.currentThread().getPriority());
+				for (int i = 1; i <= 10; i++) 
+					{
+						System.out.println(i);
+						try 
+							{
+								Thread.sleep(200);
+							}
+						catch(InterruptedException ie) 
+							{
+								System.out.println("Thread interrupted!");	
+							}
+					}
+			}
+	}
+class MyRunnable2 implements Runnable 
+	{
+		public void run()
+			{
+				System.out.println("\nPriority of thread2 : " + Thread.currentThread().getPriority());
+				for (int i = 1; i <= 19; i = i + 2)
+					{
+						System.out.println(i);
+						try
+							{
+								Thread.sleep(300);
+							}
+						catch(InterruptedException ie) 
+							{
+								System.out.println("Thread interrupted!");	
+							}
+					}
+			}
+	}
+class MyRunnable3 implements Runnable 
+	{
+		public void run() {
+		System.out.println("\nPriority of thread3 : " + Thread.currentThread().getPriority());
+		for (int i = 1; i <= 28; i = i + 3) 
+			{
+				System.out.println(i);
+				try
+					{
+						Thread.sleep(400);
+					} 
+				catch(InterruptedException ie)
+					{
+						System.out.println("Thread interrupted!");	
+					}
+			}
+		}
+	}
+public class Runnable_Interface
+	{
+		public static void main(String[]args) 	
+			{
+				Thread thread1 = new Thread(new MyRunnable1());
+				Thread thread2 = new Thread(new MyRunnable2());
+				Thread thread3 = new Thread(new MyRunnable3());
+				thread1.setPriority(Thread.MIN_PRIORITY);
+				thread2.setPriority(Thread.NORM_PRIORITY);
+				thread3.setPriority(Thread.MAX_PRIORITY);
+				thread1.start();	//thread1 execution starts at this point.
+				System.out.println("Thread 1 is alive ? " + thread1.isAlive());
+				System.out.println("Thread 2 is alive ? " + thread2.isAlive());
+				System.out.println("Thread 2 is alive ? " + thread3.isAlive());
+				try
+					{
+						thread1.join(); //waiting for thread1 to finish
+					} 
+				catch(InterruptedException ie) 
+					{
+						System.out.println("Thread interrupted!");	
+					}
+				thread2.start();	//thread2 execution starts at this point.
+				System.out.println("Thread 1 is alive ? " + thread1.isAlive());
+				System.out.println("Thread 2 is alive ? " + thread2.isAlive());
+				System.out.println("Thread 2 is alive ? " + thread3.isAlive());
+				try
+					{
+						thread2.join(); //waiting for thread2 to finish
+					}
+				catch(InterruptedException ie)
+					{
+						System.out.println("Thread interrupted!");	
+					}	
+				thread3.start();	//thread3 execution starts at this point.
+				System.out.println("Thread 1 is alive ? " + thread1.isAlive());
+				System.out.println("Thread 2 is alive ? " + thread2.isAlive());
+				System.out.println("Thread 2 is alive ? " + thread3.isAlive());
+				try 
+					{
+						thread3.join(); //waiting for thread3 to finish
+					}
+				catch(InterruptedException ie) 
+					{
+						System.out.println("Thread interrupted!");	
+					}
+			}
+	}

@@ -1,0 +1,47 @@
+class First_Thread extends Thread //The first thread 'first' object is created of this type in main() method.
+	{
+		public void run()
+			{
+				for (int i = 0; i < 10; i++)
+					{
+						System.out.println(i);
+						try
+							{
+								Thread.sleep(200);
+							}
+						catch(InterruptedException ie)
+							{
+								System.out.println("Thread has been interrupted!");
+							}
+					}
+			}
+	}
+class Second_Thread extends Thread	//The second thread 'second' object is created of this type in main() method.
+	{
+		public void run() 
+			{
+				for (int i = 0; i < 20; i = i + 2)
+					{
+						System.out.println(i);
+						try
+							{
+								Thread.sleep(100);
+							} 
+						catch(InterruptedException ie) 
+							{
+								System.out.println("Thread has been interrupted!");
+							}
+					}
+			}
+	}
+class MultiThread 
+	{
+		public static void main(String args[]) 	
+			{
+				First_Thread first = new First_Thread(); 	// First_Thread type object is created.
+				Second_Thread second = new Second_Thread();	// Second_Thread type object is created.
+				first.start();	//first thread starts its execution at this point.
+				second.start();	//second thread starts its execution at this point.
+		
+			}
+	}

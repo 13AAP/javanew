@@ -1,0 +1,75 @@
+class Student
+{
+int roll;
+float marks;
+String name;
+String dept;
+final String collegename="BPPIMT";
+Student (String name,String dept,int roll, float marks)
+{
+this.name=name;
+this.dept=dept;
+this.roll=roll;
+this.marks=marks;
+}
+
+void display()
+{
+System.out.println("College Name: "+collegename);
+System.out.println("Student Name: "+name);
+System.out.println("Student dept: "+dept);
+System.out.println("Student roll: "+roll);
+System.out.println("Student marks: "+marks);
+System.out.println("-----------------------------");
+}
+
+static void compare(Student s[])
+{
+float max=s[0].marks;
+float min=s[0].marks;
+float total=s[0].marks+s[1].marks+s[2].marks+s[3].marks+s[4].marks;
+float average=total/5;
+int i,a=0,b=0;
+System.out.println("Above Average");
+System.out.println("-----------------------------");
+for(i=0;i<5;i++)
+{
+if(max<s[i].marks)
+{max=s[i].marks;
+a=i;}
+if(min>s[i].marks)
+{min=s[i].marks;
+b=i;}
+if(s[i].marks>=average)
+{
+s[i].display();
+}
+}
+System.out.println("Maximum marks is: ");
+System.out.println("-----------------------------");
+s[a].display();
+System.out.println("Minimum marks is: ");
+System.out.println("-----------------------------");
+s[b].display();
+
+}
+}
+class demo
+{
+public static void main(String args[])
+{
+Student[] st=new Student[5];
+st[0]=new Student("Ashutosh","CSE",6110,95);;
+st[1]=new Student("Atanu","IT",6109,88);
+st[2]=new Student("Ashish","CSE",6111,89);
+st[3]=new Student("Amit","EE",6128,69);
+st[4]=new Student("Aman","ECE",6130,72);
+st[0].display();
+st[1].display();
+st[2].display();
+st[3].display();
+st[4].display();
+Student.compare(st);
+}
+}
+

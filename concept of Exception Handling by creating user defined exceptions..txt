@@ -1,0 +1,37 @@
+class UserDefinedException extends Exception //UserDefinedException class inherits class Exception
+	{
+		UserDefinedException(String s)
+		{
+			super(s); //Calls constructor of parent class Exception
+		}
+	} 
+public class UserDefinedExceptionHandler
+	{
+		public static int divide(int a, int b) throws UserDefinedException
+			{
+				if(b == 0)//Divided by zero exception occurs
+					{
+						throw new UserDefinedException("Can't divide by 0!");
+					}
+				else
+					{
+						return a / b;
+					}
+			}
+		public static void main(String args[]) 
+			{
+				try
+					{
+						int x = divide(4, 0);
+						System.out.println(x); //The control doesn't reach this line.
+					}
+				catch (UserDefinedException ude)//Catches the UserDefinedException type object thrown explicitly.
+					{
+						System.out.println("Exception caught!");
+					}
+				finally
+					{
+						System.out.println("Final Block!"); //Always executed, even if the exception isn't caught.
+					}
+			}
+	}
